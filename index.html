@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neighborhood Map</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+     <div class="mapError">
+           <h4>Couldn't load Google map!</h4>
+       </div>
+      <aside class="addresses">
+            <h1>Favourite Address</h1>
+            <div class="filter">
+                <input placeholder="filter" class="addressname" data-bind="textInput: keywords, valueUpdate: 'keyup'">
+            </div>
+
+            <div data-bind="foreach: filteredaddress" class="filterlist">
+                <p data-bind="click: $parent.info.bind(this, $data.title), text: title"></p>
+            </div>
+        </aside>
+    
+        <section class="map">
+            <div class="options">
+                <img data-bind="click: toggle" id="menuicon" src="img/menu-icon.svg">
+            </div>
+
+            <div id="map"></div>
+        </section>
+
+        <script  src="js/lib/jquery.min.js"></script>
+        <script  src="js/lib/knockout-3.3.0.js"></script>
+        <script  src="js/app.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-t_-IDdKqeGweaY_fVOxaQJ1jxUGnhXM&callback=initMap" async defer onerror="mapError()"> </script>
+
+</body>
+</html>
